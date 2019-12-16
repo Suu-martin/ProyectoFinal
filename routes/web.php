@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ProductsController@listado');
 
 Route::get('/contact', function() {
   return view('contact');

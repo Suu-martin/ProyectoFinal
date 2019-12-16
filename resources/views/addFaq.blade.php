@@ -1,11 +1,6 @@
 @extends('layouts.lay')
 
 @section('content')
-  <body>
-    <header>
-      @extends('layouts.menu')
-    </header>
-
     <div class="faq-background">
       <form class="" action=" {{"/addFaq"}}" method="post">
       @csrf
@@ -32,5 +27,5 @@
         <a href="/deleteFaq"><button class="boton1" type="submit" name="button" value="save">Save</button></a>
       </div>
     </form>
-
+</div>
 @endsection

@@ -47,8 +47,10 @@
       </div>
     </main>
     @if(Auth::user() !== null)
+      @if(Auth::user()->admin == 1)
     <div class="boton edit-faq">
       <a href="/productList"><button class="boton1" type="button" name="button">Edit List</button></a>
     </div>
+  @endif
   @endif
 @endsection

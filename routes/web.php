@@ -5,7 +5,10 @@ Route::get('/', 'ProductsController@listado');
 Route::get('/contact', function() {
   return view('contact');
 });
-Route::get('/profile', function() {
+Route::get('/editProfile/{id}', 'ProfilesController@edit');
+Route::put('/editProfile/{id}', 'ProfilesController@update');
+
+Route::get('/profile', function(){
   return view('profile');
 });
 

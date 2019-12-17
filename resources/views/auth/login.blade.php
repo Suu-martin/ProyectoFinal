@@ -1,10 +1,6 @@
 @extends('layouts.lay')
 
 @section('content')
-  <body>
-    <header>
-      @extends('layouts.menu')
-    </header>
 
               <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

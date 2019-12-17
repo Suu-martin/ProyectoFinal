@@ -18,7 +18,7 @@
                   </a>
               </form>
             </article>
-            @if(Auth::user()->id == 1)
+            @if(Auth::user()->admin == 1)
             <form class="" action="/productList" method="post">
               @csrf
               <input type="hidden" name="id" value="{{$dato->id}}">
@@ -29,7 +29,7 @@
             @endif
           @endforeach
         </ul>
-        @if(Auth::user()->id == 1)
+        @if(Auth::user()->admin == 1)
         <div class="boton edit-faq">
           <a href="/addProduct"><button class="boton1" type="button" name="button">Add</button></a>
         </div>

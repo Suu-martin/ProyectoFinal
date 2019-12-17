@@ -16,6 +16,10 @@
   border: 1px solid #1f53c5;
 
 }
+.rounded-circle {
+  border-radius: 50%;
+  margin-left: 25px;
+}
 .margin-l-r {
   margin: 0 15px;
 }
@@ -357,7 +361,7 @@ input[type=checkbox] {
 /* fin de vista de carrito */
 
 /* formulario de registro */
-.card-body {
+.form-register {
   width: 100%;
   background-color: #24303c;
   padding: 30px;
@@ -368,20 +372,20 @@ input[type=checkbox] {
   color: white;
   box-shadow: 7px 13px 37px #000;
 }
-.card-body h4 {
+.form-register h4 {
   font-size: 1.5em;
   margin-bottom: 20px;
 }
-.card-body a {
+.form-register a {
   color: white;
   text-decoration: none;
   width: 100%;
 }
-.card-body a:hover {
+.form-register a:hover {
   color: white;
   text-decoration: underline;
 }
-.card-body .botons {
+.form-register .botons {
   width: 100%;
   background: #1f53c5;
   border: none;
@@ -395,9 +399,6 @@ input[type=checkbox] {
   font-size: 1.5em;
   line-height: 40px;
   color: white;
-}
-.card-body .controls {
-  width: 100%;
 }
 /* fin de formulario de registro */
 
@@ -746,22 +747,22 @@ input[type=checkbox] {
 
 
   /* formulario de registro */
-  .card-body {
+  .form-register {
     width: 80%;
     margin: auto;
     margin-top: 15px;
   }
-  .card-body h4 {
+  .form-register h4 {
     margin-bottom: 20px;
   }
-  .card-body a {
+  .form-register a {
 
   }
-  .card-body a:hover {
+  .form-register a:hover {
     color: white;
     text-decoration: underline;
   }
-  .card-body .botons {
+  .form-register .botons {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -918,7 +919,6 @@ input[type=checkbox] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around ;
-    align-items:center;
   }
   .articulo {
 	display: flex;
@@ -1037,27 +1037,27 @@ input[type=checkbox] {
 
 
   /* formulario de registro */
-  .card-body {
+  .form-register {
     width: 80%;
     background-color: #24303c;
     padding: 60px;
     margin: 0 auto;
   }
-  .card-body h4 {
+  .form-register h4 {
     margin-bottom: 40px;
   }
-  .card-body p {
+  .form-register p {
     line-height: 80px;
   }
-  .card-body a {
+  .form-register a {
     color: white;
     text-decoration: none;
   }
-  .card-body a:hover {
+  .form-register a:hover {
     color: white;
     text-decoration: underline;
   }
-  .card-body .botons {
+  .form-register .botons {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -1065,34 +1065,25 @@ input[type=checkbox] {
     color: white;
     margin: 32px 0;
   }
-  .card-body .form-control{
-    width: 100%;
-    height: 30px;
-    margin: 5px 0;
-  }
-
   /* fin de formulario de registro */
 
   /* formulario de login */
-  .card-body {
+  .form-login {
     width: 70%;
   }
-  .card-body h4 {
+  .form-login h4 {
     margin-bottom: 40px;
   }
-  .card-body p {
+  .form-login p {
     font-size: 1.5em;
   }
-  .card-body .botons {
+  .form-login .botons {
     width: 100%;
     background: #1f53c5;
     border: none;
     padding: 20px;
     color: white;
     margin: 32px 0;
-  }
-  .card-body .remember{
-    margin: 15px 15px 0 15px;
   }
   /* fin de formulario de login */
 
@@ -1144,32 +1135,15 @@ input[type=checkbox] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 80%;
   }
   .ask {
-    width: 230%;
+    width: 45%;
     margin-left: 3%;
-    background-color: #24303c;
   }
-
-  .ask .esp {
-    width: 200%;
-    text-align: center;
-  }
-
   .faq {
     width: 100%;
     margin-bottom: 30px;
-  }
-  .faq-titulo{
-    background-color: #24303c;
-    color: white;
-    margin-bottom: 5px;
-  }
-  .faq-background .ans{
-    background-color: white;
-    text-align: center;
-    margin: 10px 0;
+}
   }
   /* fin vista de preguntas frecuentes */
 
@@ -1191,7 +1165,8 @@ input[type=checkbox] {
     margin: 0 auto;
    }
   .profile {
-    margin-top: 100px;
+    width: 85%;
+    margin: 0 auto;
     }
   .tarjetas{
     width: 40%;
@@ -1221,3 +1196,4 @@ input[type=checkbox] {
     width: 50%;
   }
   /* fin de vista de perfil de usuario */
+}

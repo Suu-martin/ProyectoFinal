@@ -2,12 +2,8 @@
 
 Route::get('/', 'ProductsController@listado');
 
-Route::get('/contact', function() {
-  return view('contact');
-});
-Route::get('/profile', function() {
-  return view('profile');
-});
+Route::get('/contact', function() {return view('contact');});
+Route::get('/profile', function() {return view('profile');});
 
 Route::get('/home', 'ProductsController@listado');
 Route::post('/home', 'ProductsController@detail');

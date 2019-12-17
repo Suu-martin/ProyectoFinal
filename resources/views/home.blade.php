@@ -1,7 +1,6 @@
 @extends('layouts.lay')
 
 @section('content')
-    <main>
       <div class="header-listado margin-l-r">
         <form class="buscador-listado" action="" method="GET">
           @csrf

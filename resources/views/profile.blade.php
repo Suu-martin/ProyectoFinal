@@ -1,15 +1,10 @@
 @extends('layouts.lay')
 
 @section('content')
-  <body>
-  <div class="container">
-    <header>
-      @extends('layouts.menu')
-    </header>
       <div class="profile">
         <h2 >Mi Perfil</h2>
         <div class="perfilBasico">
-          <img src="img/avatares" alt="foto de perfil" class="foto-perfil">
+          <img src="/storage/{{ Auth::user()->avatar}}" alt="foto de perfil" class="foto-perfil">
           <div class="user-datos">
             <h2 class="NombreC">{{ Auth::user()->name }}</h2>
             <h4 class="emailU">{{ Auth::user()->email }}</h4>

@@ -7,11 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Manjari|Pacifico|Roboto+Slab&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/functions.js"></script>
   <title>MyEcommerce</title>
 </head>
 <body>
-  <nav>
+
+
+ {{--  <nav>
     <h1 class="titulo"><a href="/home">My e-commerce</a></h1>
     <ul class="header-nav">
       <li><a href="/faq">F.A.Q</a></li>
@@ -67,10 +70,61 @@
       <a href="/contact" class="footer-boton"><ion-icon name="paper-plane"></ion-icon></a>
       <a href="/cart" class="footer-boton"><ion-icon name="cart"></ion-icon></a>
     </div>
-  </nav>
+  </nav> --}}
 
   <div class="container">
+  <header>
+  <nav>
+          <h1 class="titulo"><a href="/">My e-commerce</a></h1>
+          <ul class="header-nav">
+              <li><a href="/faq">F.A.Q</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/cart">Cart</a></li>
+             @guest
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              @if (Route::has('register'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  </li>
+              @endif
+          @else
+            <li>
+           <div class="log-profile">
+
+                <a class="" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+                <a id="navbarDropdown" class="" href="/profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  <img src="/storage/{{ Auth::user()->avatar }}" alt="" width="45" height="45" class="rounded-circle">
+                </a>
+          </div>
+          </li>
+          @endguest
+          </ul>
+          <div class="hamb">
+            <a id="hamb" onclick="show()"><ion-icon name="menu"></ion-icon></a>
+          </div>
+          <div class="botonera" id="menu" style="display: none;">
+              <a href="login.php"><ion-icon name="log-in"></ion-icon></a>
+                <a href="profile.php"><ion-icon name="person"></ion-icon></a>
+              <a href="logout.php"><ion-icon name="log-out"></ion-icon></a>
+              <a href="faq.php"><ion-icon name="help"></ion-icon></a>
+              <a href="contact.php" class="footer-boton"><ion-icon name="paper-plane"></ion-icon></a>
+              <a href="cart.php" class="footer-boton"><ion-icon name="cart"></ion-icon></a>
+          </div>
+        </nav>
+  </header>
+  <main>
     @yield('content')
+  </main>
+
   </div>
   <footer>
     <div class="footer">

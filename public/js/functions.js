@@ -15,3 +15,22 @@ function show() {
     x.style.display = "none";
   }
 }
+function addToCart(e , id)
+{
+  var data = new FormData();
+  data.append( "id", id );
+  fetch('api/addItem', {
+     method: 'POST',
+     body: data
+  })
+  .then(function(response) {
+     if(response.ok) {
+         console.log(response.text());
+     } else {
+         console.log("Error en la llamada Ajax");
+     }
+  })
+  .then(function(texto) {
+     console.log(texto);
+  })
+}

@@ -39,11 +39,4 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </main>
-    @if(Auth::user() !== null)
-      @if(Auth::user()->admin == 1)
-    <div class="boton edit-faq">
-      <a href="/productList"><button class="boton1" type="button" name="button">Edit List</button></a>
-    </div>
-  @endif
-  @endif
 @endsection

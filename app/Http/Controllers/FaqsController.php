@@ -52,4 +52,12 @@ class FaqsController extends Controller
         return redirect("/faq");
         }
 
+        public function li()
+        {
+          $faqs = Faq::all();
+
+          $vac = compact("faqs");
+
+          return view("faq/faqList", $vac);
+        }
   }

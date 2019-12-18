@@ -23,12 +23,12 @@ class ProfilesController extends Controller
     $user->email = $form["email"];
     if(isset($form["avatar"]))
     {
-      $path = $form['avatar']->store('public');
+      $path = $form['avatar']->store('public/avatares');
       $avatar = basename($path);
       $user->avatar = $avatar;
     }
     $user->save();
-    return redirect("user/profile");
+    return redirect("/profile");
   }
 
 }

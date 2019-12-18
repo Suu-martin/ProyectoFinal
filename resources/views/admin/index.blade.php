@@ -21,7 +21,7 @@
         Categories
       </li>
     </a>
-    <a href="/admin/faq">
+    <a href="/admin/faqList">
       <li class="controls item-admin">
         FAQ's
       </li>

@@ -527,6 +527,7 @@ input[type=checkbox] {
   width: 100%;
   display: flex;
 }
+
 /* fin vista de preguntas frecuentes */
 
 /* vista de perfil de usuario */
@@ -1150,14 +1151,17 @@ input[type=checkbox] {
     align-items: center;
   }
   .ask {
-    width: 45%;
-    margin-left: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   .faq {
     width: 100%;
     margin-bottom: 30px;
 }
-  }
+.faq-li {
+  width: 45%;
+}
   /* fin vista de preguntas frecuentes */
 
   /* vista de perfil de usuario */

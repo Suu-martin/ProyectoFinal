@@ -11,7 +11,7 @@
   <script src="/js/functions.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-  <title>MyEcommerce</title>
+  <title>GloTech</title>
 </head>
 <body>
 
@@ -77,7 +77,7 @@
   <div class="container">
   <header>
   <nav>
-          <h1 class="titulo"><a href="/">My e-commerce</a></h1>
+          <h1 class="titulo"><a href="/">GloTech</a></h1>
           <ul class="header-nav">
               <li><a href="/faq">F.A.Q</a></li>
               <li><a href="/contact">Contact</a></li>

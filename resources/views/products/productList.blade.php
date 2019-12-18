@@ -10,7 +10,7 @@
                 <input type="hidden" name="id" value="{{$dato->id}}">
                   <a href="/product">
                     <div class="articulo-imagen">
-                      <img src="img/productos/{{ $dato->image }}" alt="" class="img-article">
+                      <img src="/storage/products/{{ $dato->image }}" alt="" class="img-article">
                     </div>
                     <div class="article-footer">
                       <h4>{{ $dato->name }}</h4> - <h4>{{ $dato->price }}</h4>

@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/functions.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
   <title>MyEcommerce</title>
 </head>
 <body>
@@ -91,18 +93,23 @@
               @endif
           @else
             <li>
+              @if (Auth::user()->admin == 1)
+                <a class="" href="/admin" onclick="">
+                  Admin
+                </a>
+              @endif
+            </li>
+            <li>
            <div class="log-profile">
 
-                <a class="" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
+                <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
                 </form>
                 <a id="navbarDropdown" class="" href="/profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  <img src="/storage/{{ Auth::user()->avatar }}" alt="" width="45" height="45" class="rounded-circle">
+                  <img src="/storage/avatares/{{ Auth::user()->avatar }}" alt="" width="45" height="45" class="rounded-circle">
                 </a>
           </div>
           </li>
@@ -112,12 +119,29 @@
             <a id="hamb" onclick="show()"><ion-icon name="menu"></ion-icon></a>
           </div>
           <div class="botonera" id="menu" style="display: none;">
-              <a href="login.php"><ion-icon name="log-in"></ion-icon></a>
-                <a href="profile.php"><ion-icon name="person"></ion-icon></a>
-              <a href="logout.php"><ion-icon name="log-out"></ion-icon></a>
-              <a href="faq.php"><ion-icon name="help"></ion-icon></a>
-              <a href="contact.php" class="footer-boton"><ion-icon name="paper-plane"></ion-icon></a>
-              <a href="cart.php" class="footer-boton"><ion-icon name="cart"></ion-icon></a>
+            @guest
+              <a href="/login"><ion-icon name="log-in"></ion-icon></a>
+            @else
+             <li>
+               @if (Auth::user()->admin == 1)
+                 <a class="" href="/admin" onclick="">
+                   <ion-icon name="build"></ion-icon>
+                 </a>
+               @endif
+                 <a class="" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                   <ion-icon name="log-out"></ion-icon>
+                 </a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                   @csrf
+                 </form>
+                 <a id="navbarDropdown" class="" href="/profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                   <ion-icon name="person"></ion-icon>
+                 </a>
+           </li>
+           @endguest
+              <a href="/faq"><ion-icon name="help"></ion-icon></a>
+              <a href="/contact" class="footer-boton"><ion-icon name="paper-plane"></ion-icon></a>
+              <a href="/cart" class="footer-boton"><ion-icon name="cart"></ion-icon></a>
           </div>
         </nav>
   </header>
@@ -167,6 +191,5 @@
       </div>
     </div>
   </footer>
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

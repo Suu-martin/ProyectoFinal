@@ -16,6 +16,13 @@
   border: 1px solid #1f53c5;
 
 }
+.item-admin {
+  background-color: #fff;
+  padding: 10px;
+  color: #000;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 .rounded-circle {
   border-radius: 50%;
   margin-left: 25px;
@@ -56,11 +63,17 @@
   color: #FFF;
   font-size: 1.3em;
 }
+.paginador ul li span {
+  display: block;
+  padding: 7px;
+  color: #FFF;
+  font-size: 1.3em;
+}
 .paginador ul li a i{
   font-size: 0.9em;
 }
 .active {
-  background-color: #1f53c5;
+  background-color: #1f53c5 !important;
 }
 .Cart-descripcion {
   width: 70%;
@@ -691,7 +704,7 @@ input[type=checkbox] {
     text-align: center;
   }
   .hamb {
-    margin-top: 135px;
+    margin-top: 45px;
   }
   .hamb a{
     font-size: 3em;
@@ -939,7 +952,7 @@ input[type=checkbox] {
     display: none;
    }
   .botonera  {
-    display: none;
+    display: none !important;
   }
   .cart {
     font-size: 1.2em;
@@ -954,7 +967,7 @@ input[type=checkbox] {
   .footer-boton {
     font-size: 1.5em;
     border-radius: 50px 50px 50px 50px;
-    width: 150px;
+    width: 180px;
    }
   .footer-ul li a h2 {
      display: block;

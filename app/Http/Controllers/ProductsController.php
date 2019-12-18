@@ -18,10 +18,14 @@ class ProductsController extends Controller
     public function list()
     {
       $datos = Product::all();
-
       $vac = compact("datos");
-
-      return view("/productList", $vac);
+      return view("products/productList", $vac);
+    }
+    public function detail($id)
+    {
+      $datos = Product::find($id);
+      $vac = compact("datos");
+      return view("products/product",$vac);
     }
 
 }

@@ -13,7 +13,7 @@ class FaqsController extends Controller
 
       $vac = compact("faqs");
 
-      return view("faq", $vac);
+      return view("faq/faq", $vac);
     }
 
     public function detail($id) {
@@ -21,7 +21,7 @@ class FaqsController extends Controller
 
       $vac = compact("faq");
 
-      return view("detailFaq", $vac);
+      return view("faq/detailFaq", $vac);
     }
 
     public function delete(Request $form) {
@@ -35,7 +35,7 @@ class FaqsController extends Controller
     }
 
     public function addform() {
-      return view("/addFaq");
+      return view("/faq/addFaq");
     }
 
 

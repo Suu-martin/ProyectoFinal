@@ -7,26 +7,28 @@ use App\User;
 
 class ProfilesController extends Controller
 {
-  public function edit($id)
+  public function edit()
   {
-    $user = User::find($id);
-
-    $vac = compact("user");
-
-    return view("/editProfile", $vac);
+    return view("users/editProfile");
   }
-
-  public function update(Request $form, $id)
+  public function show()
+  {
+    return view("users/profile");
+  }
+  public function update(Request $form)
   {
     $user = User::find($form["id"]);
 
     $user->name = $form["name"];
     $user->email = $form["email"];
-    $user->avatar = $form["avatar"];
-
+    if(isset($form["avatar"]))
+    {
+      $path = $form['avatar']->store('public');
+      $avatar = basename($path);
+      $user->avatar = $avatar;
+    }
     $user->save();
-
-    return redirect("profile");
+    return redirect("user/profile");
   }
 
 }

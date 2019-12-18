@@ -3,36 +3,30 @@
 @section('content')
       <div class="header-listado margin-l-r">
         <form class="buscador-listado" action="" method="GET">
-          @csrf
           <div class="">
             <input type="text" name="s" value="" placeholder="Buscar">
             <button type="submit">Buscar</button>
           </div>
         </form>
         <div class="paginador">
-          <nav>
             {{$datos->links()}}
-          </nav>
         </div>
       </div>
       <section class="articulos">
       @forelse ($datos as $dato)
         <article class="articulo">
-          <form class="" action="/product" method="post">
-            <input type="hidden" name="id" value="{{$dato->id}}">
-              <a href="/product">
-                <div class="articulo-imagen">
-                  <img src="img/productos/{{ $dato->image }}" alt="" class="img-article">
-                  <div class="cart">
-                    <a href="/cart"><i class="material-icons">add_shopping_cart</i></a>
-                  </div>
-                </div>
-                <div class="article-footer">
-                  <h4>{{ $dato->name }}</h4>
-                  <h4>{{ $dato->price }}</h4>
-                </div>
-              </a>
-          </form>
+          <a href="/product/{{$dato->id}}">
+          <div class="articulo-imagen">
+            <img src="/storage/products/{{ $dato->image }}" alt="" class="img-article">
+            <div class="cart">
+               <a href="cart.php?add={{ $dato->id }}"><i class="material-icons">add_shopping_cart</i></a>
+            </div>
+          </div>
+          <div class="article-footer">
+            <h4>{{ $dato->name }}</h4>
+            <h4>${{ $dato->price }}</h4>
+          </div>
+        </a>
         </article>
       @empty
         <div class="">

@@ -1,27 +1,34 @@
 <?php
-
+//HOME
 Route::get('/', 'ProductsController@listado');
-
-Route::get('/contact', function() {
-  return view('contact');
-});
-Route::get('/editProfile/{id}', 'ProfilesController@edit');
-Route::put('/editProfile/{id}', 'ProfilesController@update');
-
-Route::get('/profile', function(){
-  return view('profile');
-});
-
 Route::get('/home', 'ProductsController@listado');
-Route::post('/home', 'ProductsController@detail');
-Route::get('/productList', 'ProductsController@list');
 
+//CONTACT
+Route::get('/contact', 'ContactController@index');
+
+//USER
+Route::get('/editProfile', 'ProfilesController@edit')->middleware('isLogIn');
+Route::post('/editProfile', 'ProfilesController@update')->middleware('isLogIn');
+Route::get('/profile', 'ProfilesController@show')->middleware('isLogIn');
+
+//PRODUCT
+Route::get('/productList', 'ProductsController@list');
+Route::get('/product/{id}', 'ProductsController@detail');
+
+//BRANDS
 Route::get('/brand', 'BrandsController@list');
 
-Route::get('/addFaq', 'FaqsController@addform');
-Route::post('/addFaq', 'FaqsController@add');
+//FAQ'S
 Route::get('/faq', 'FaqsController@list');
 Route::get('/faq/{id}', 'FaqsController@detail');
-Route::post('/deleteFaq', 'FaqsController@delete');
 
+//ADMIN
+Route::get('/admin', 'AdminController@index')->middleware('Admin');
+Route::get('/admin/products', 'AdminController@products')->middleware('Admin');
+Route::get('/admin/addProduct', 'AdminController@addPForm')->middleware('Admin');
+Route::get('/addFaq', 'FaqsController@addform')->middleware('Admin');
+Route::post('/addFaq', 'FaqsController@add')->middleware('Admin');
+Route::post('/deleteFaq', 'FaqsController@delete')->middleware('Admin');
+
+//AUTH
 Auth::routes();

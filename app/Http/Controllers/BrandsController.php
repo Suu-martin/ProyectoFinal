@@ -13,7 +13,7 @@ class BrandsController extends Controller
 
     $vac = compact("brands");
 
-    return view("/brand", $vac);
+    return view("brands/brand", $vac);
   }
 
 }

@@ -28,15 +28,9 @@
           </span>
        @enderror
       </div>
-        <input class="controls"   type="email" name="email" placeholder="Email *" value="{{ Auth::user()->email }}">
-      <div class="error-reg">
-        @error('email')
-          <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
-          </span>
-       @enderror
-      </div>
-        <input class="controls" type="password" name="password" placeholder="Password for save changes">
+        <input class="controls" type="password" name="oldPassword" placeholder="Old password for save changes">
+        <input class="controls" type="password" name="password" placeholder="New password (optional)">
+        <input class="controls" type="password" name="password_confirmation" placeholder="Confirm new password">
       </div>
         <input  class="botons" type="submit" value="Save">
     </form>

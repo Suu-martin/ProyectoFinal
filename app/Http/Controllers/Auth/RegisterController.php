@@ -66,7 +66,7 @@ class RegisterController extends Controller
     {
         $avatar = "default.png";
         if(isset($data["avatar"])){
-          $path = $data['avatar']->store('public');
+          $path = $data['avatar']->store('public/avatares');
           $avatar = basename($path);
         }
         return User::create([

@@ -3,11 +3,9 @@
 @section('content')
 
   <div class="form-cont">
-    <form class="" action=" {{"/admin/addProduct"}}" method="post">
-    @csrf
     <h4>Add Product</h4>
-    <form class="" action="" method="post" enctype="multipart/form-data">
-      @csrf
+    <form class="" action=" {{"/admin/addProduct"}}" method="post" enctype="multipart/form-data">
+    @csrf
       <input class="controls" type="text"  name="name" placeholder="Name *" value="{{old("name")}}" >
       @error ('name')
         {{$message}}

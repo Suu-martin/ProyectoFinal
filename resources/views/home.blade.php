@@ -19,7 +19,7 @@
           <div class="articulo-imagen">
             <img src="/storage/products/{{ $dato->image }}" alt="" class="img-article">
             <div class="cart">
-               <a href="cart.php?add={{ $dato->id }}"><i class="material-icons">add_shopping_cart</i></a>
+               <a onclick="addToCart(this,{{ $dato->id }})"><i class="material-icons">add_shopping_cart</i></a>
             </div>
           </div>
           <div class="article-footer">

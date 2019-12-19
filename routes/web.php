@@ -6,6 +6,10 @@ Route::get('/home', 'ProductsController@listado');
 //CONTACT
 Route::get('/contact', 'ContactController@index');
 
+//CART
+Route::get('/cart', 'CartController@index');
+
+
 //USER
 Route::get('/editProfile', 'ProfilesController@edit')->middleware('isLogIn');
 Route::post('/editProfile', 'ProfilesController@update')->middleware('isLogIn');

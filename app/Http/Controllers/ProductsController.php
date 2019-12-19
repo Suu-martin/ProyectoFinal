@@ -53,8 +53,8 @@ class ProductsController extends Controller
 
       $newProduct->name = $req["name"];
       $newProduct->price = $req["price"];
-      $newProduct->brand_id = $req["brand_id"];
-      $newProduct->category_id = $req["category_id"];
+      $newProduct->brand_id = $req["brand"];
+      $newProduct->category_id = $req["category"];
       $newProduct->description = $req["description"];
       $newProduct->stock = $req["stock"];
       $newProduct->image = $image;

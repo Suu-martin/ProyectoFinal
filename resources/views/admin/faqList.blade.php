@@ -12,10 +12,11 @@
         <div class="ans">
           {{$faq->answer}}
         </div>
+        <form class="" action="/deleteFaq" method="post">
         @csrf
         <input type="hidden" name="id" value="{{$faq->id}}">
         <div class="boton edit-faq">
-          <a href="/deleteFaq"><button class="boton1" type="submit" name="button" value="delete">Delete</button></a>
+          <button class="boton1" type="submit" name="button" value="delete">Delete</button>
         </div>
       </form>
       </li>
@@ -24,7 +25,7 @@
        @endforelse
     </ul>
     <div class="boton edit-faq">
-      <a href="/addFaq"><button class="boton1" type="button" name="button">Add</button></a>
+      <a href="/admin/addFaq"><button class="boton1" type="button" name="button">Add</button></a>
     </div>
   </div>
 @endsection

@@ -8,17 +8,12 @@
       <div class="header-listado">
         <form class="buscador-listado" action="" method="GET">
           <div class="">
-            <input type="text" name="s" value="">
+            <input type="text" name="s" value="{{ $search }}">
             <button type="submit">Search</button>
           </div>
         </form>
         <div class="paginador">
-          <ul>
-              <li ><a href=""><i class="material-icons">chevron_left</i></a></li>
-              <li><a class="active" href="">1</a></li>
-              <li><a href="">2</a></li>
-              <li ><a href=""><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+          {{$datos->links()}}
           </div>
       </div>
       <section class="seccion-listado">
@@ -37,12 +32,8 @@
               </div>
             </div>
             <div class="producto-botones">
-              <form class="producto-botones" action="/admin/deleteProduct" method="post">
-                @csrf
               <a href="/admin/editProduct/{{ $dato->id }}"><i class="material-icons">edit</i></a>
-                <input type="hidden" name="id" value="{{$dato->id}}">
-              <a href="/admin/deleteProduct"><button type="submit" name="button" value="delete"><i class="material-icons">delete_forever</i></button></a>
-              </form>
+              <a href="/admin/deleteProduct/{{ $dato->id }}"><i class="material-icons">delete_forever</i></a>
             </div>
           </article>
         @empty

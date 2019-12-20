@@ -131,15 +131,24 @@ class ProductsController extends Controller
         return redirect("/admin/products");
       }
 
-      public function lis()
+      public function lis(Request $req)
       {
-        $datos = Product::all();
-        $vac = compact("datos");
+        $search = "";
+        if(isset($req["s"])){
+          $search = $req["s"];
+        }
+        $datos = Product::join('brand', 'brand_id', '=', 'brand.id')
+        ->join('category', 'category_id', '=', 'category.id')
+        ->select('products.*','brand.name AS brand_name')
+        ->where('products.name','LIKE', "%$search%")
+        ->orwhere('brand.name','LIKE', "%$search%")
+        ->orwhere('category.name','LIKE', "%$search%")->paginate(15);
+        $datos->appends(["s" => $search]);
+        $vac = compact("datos","search");
         return view("admin/products", $vac);
       }
 
-      public function delete(Request $form) {
-        $id = $form["id"];
+      public function delete($id) {
         $dato = Product::find($id);
         $dato->delete();
         return redirect("/admin/products");

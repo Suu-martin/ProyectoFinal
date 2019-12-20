@@ -28,16 +28,15 @@ Route::get('/faq/{id}', 'FaqsController@detail');
 
 //ADMIN
 Route::get('/admin', 'AdminController@index')->middleware('Admin');
-Route::get('/admin/products', 'AdminController@products')->middleware('Admin');
 Route::get('/admin/addProduct', 'ProductsController@addPForm')->middleware('Admin');
 Route::post('/admin/addProduct', 'ProductsController@add')->middleware('Admin');
 Route::get('/admin/editProduct/{id}', 'ProductsController@edit')->middleware('Admin');
 Route::post('/admin/editProduct', 'ProductsController@update')->middleware('Admin');
-Route::post('/admin/deleteProduct', 'ProductsController@delete')->middleware('Admin');
+Route::get('/admin/deleteProduct/{id}', 'ProductsController@delete')->middleware('Admin');
 Route::get('/admin/products', 'ProductsController@lis')->middleware('Admin');
 Route::get('/admin/addProduct', 'ProductsController@li')->middleware('Admin');
-Route::get('/addFaq', 'FaqsController@addform')->middleware('Admin');
-Route::post('/addFaq', 'FaqsController@add')->middleware('Admin');
+Route::get('/admin/addFaq', 'FaqsController@addform')->middleware('Admin');
+Route::post('/admin/addFaq', 'FaqsController@add')->middleware('Admin');
 Route::post('/deleteFaq', 'FaqsController@delete')->middleware('Admin');
 Route::get('/admin/faqList', 'FaqsController@li')->middleware('Admin');
 

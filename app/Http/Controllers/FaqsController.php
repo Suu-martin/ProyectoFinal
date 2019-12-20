@@ -21,7 +21,7 @@ class FaqsController extends Controller
 
       $vac = compact("faq");
 
-      return view("faq/detailFaq", $vac);
+      return view("/admin/detailFaq", $vac);
     }
 
     public function delete(Request $form) {
@@ -31,33 +31,28 @@ class FaqsController extends Controller
 
       $faq->delete();
 
-      return redirect("/faq");
+      return redirect("/admin/faqList");
     }
 
     public function addform() {
-      return view("/faq/addFaq");
+      return view("/admin/addFaq");
     }
 
 
     public function add(Request $request){
-
-      //  return $req->all(); (verificar si se envian los datos)
         $newFaq = new Faq();
-
         $newFaq->question = $request["question"];
         $newFaq->answer = $request["answer"];
-
         $newFaq->save();
-
-        return redirect("/faq");
+        return redirect("/admin/faqList");
         }
 
-        public function li()
-        {
-          $faqs = Faq::all();
+    public function li()
+    {
+      $faqs = Faq::all();
 
-          $vac = compact("faqs");
+      $vac = compact("faqs");
 
-          return view("faq/faqList", $vac);
-        }
+      return view("/admin/faqList", $vac);
+    }
   }

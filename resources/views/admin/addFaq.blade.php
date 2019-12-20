@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="faq-background">
-      <form class="" action=" {{"/addFaq"}}" method="post">
+      <form class="" action=" {{"/admin/addFaq"}}" method="post">
       @csrf
       <h4 class="faq">Frequently Asked Questions</h4>
       <dl class="ask">

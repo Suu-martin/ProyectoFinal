@@ -32,7 +32,7 @@ Route::get('/admin/products', 'AdminController@products')->middleware('Admin');
 Route::get('/admin/addProduct', 'ProductsController@addPForm')->middleware('Admin');
 Route::post('/admin/addProduct', 'ProductsController@add')->middleware('Admin');
 Route::get('/admin/editProduct/{id}', 'ProductsController@edit')->middleware('Admin');
-Route::post('/admin/editProduct', 'ProductsController@update')->middleware('Admin');
+Route::post('/admin/editProduct/{id}', 'ProductsController@update')->middleware('Admin');
 Route::post('/admin/deleteProduct', 'ProductsController@delete')->middleware('Admin');
 Route::get('/admin/products', 'ProductsController@lis')->middleware('Admin');
 Route::get('/admin/addProduct', 'ProductsController@li')->middleware('Admin');

@@ -101,7 +101,7 @@ class ProductsController extends Controller
         return view("/admin/editProduct", $vac);
       }
 
-      public function update(Request $req)
+      public function update(Request $req, $id)
       {
         $rules = [
           'name' => 'required|string|max:255',
@@ -113,7 +113,7 @@ class ProductsController extends Controller
 
         $this->validate($req,$rules);
 
-        $newProduct = new Product();
+        $newProduct = Product::find($id);
 
         $path = $req['image']->store('public/products');
         $image = basename($path);

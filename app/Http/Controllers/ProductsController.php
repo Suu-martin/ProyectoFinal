@@ -21,7 +21,7 @@ class ProductsController extends Controller
     {
       $datos = Product::all();
       $vac = compact("datos");
-      return view("products/productList", $vac);
+      return view("products/product", $vac);
     }
     public function detail($id)
     {
@@ -61,7 +61,7 @@ class ProductsController extends Controller
 
       $newProduct->save();
 
-      return redirect("/productList");
+      return redirect("/admin/products");
     }
 
      public function li()
@@ -109,7 +109,7 @@ class ProductsController extends Controller
 
         $newProduct->save();
 
-        return redirect("/productList");
+        return redirect("/admin/products");
       }
 
       public function lis()
@@ -119,5 +119,11 @@ class ProductsController extends Controller
         return view("admin/products", $vac);
       }
 
+      public function delete(Request $form) {
+        $id = $form["id"];
+        $dato = Product::find($id);
+        $dato->delete();
+        return redirect("/admin/products");
+      }
 
 }

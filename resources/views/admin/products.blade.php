@@ -37,8 +37,12 @@
               </div>
             </div>
             <div class="producto-botones">
+              <form class="producto-botones" action="/admin/deleteProduct" method="post">
+                @csrf
               <a href="/admin/editProduct/{{ $dato->id }}"><i class="material-icons">edit</i></a>
-              <a href="/admin/products/{{ $dato->id }}"><i class="material-icons">delete_forever</i></a>
+                <input type="hidden" name="id" value="{{$dato->id}}">
+              <a href="/admin/deleteProduct"><button type="submit" name="button" value="delete"><i class="material-icons">delete_forever</i></button></a>
+              </form>
             </div>
           </article>
         @empty

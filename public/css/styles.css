@@ -10,6 +10,7 @@
 .marca-categoria {
   display: flex;
   justify-content: space-around;
+  margin: 0 0 10px 0;
 }
 .selector {
   padding: 10px;
@@ -683,7 +684,11 @@ input[type=checkbox] {
 }
 .producto-botones .material-icons {
   color: #FFF;
-    font-size: 2.2em;
+  background-color: gray;
+}
+.producto-botones .material-icons {
+  color: #FFF;
+  background-color: gray;
 }
 
 /* Fin de vista de administrador */
@@ -916,8 +921,8 @@ input[type=checkbox] {
   }
 
   .producto-botones {
-    position: absolute;
-    bottom: 5px;
+    position: relative;
+    bottom: 15px;
   }
   .producto-lista {
     min-height: 100%;

@@ -6,11 +6,12 @@
     <h4>Edit Product</h4>
     <form class="" action="{{"/admin/editProduct"}}" method="post" enctype="multipart/form-data">
       @csrf
-      <input class="controls" type="text"  name="name" placeholder="Name *" value="{{old("name")}}" >
+      <input class="controls" type="text"  name="name" placeholder="Name *" value="{{$dato->name}}" >
+      <input type="text"  name="id" value="{{$dato->id}}" display="none" hidden >
       @error ('name')
         {{$message}}
       @enderror
-      <input class="controls" type="number" name="price" placeholder="Price *" value="{{old("price")}}" >
+      <input class="controls" type="number" name="price" placeholder="Price *" value="{{$dato->price}}" >
       @error ('price')
         {{$message}}
       @enderror
@@ -32,20 +33,20 @@
          </select>
         </div>
       </div>
-      <textarea class="controls" name="description" rows="3" cols="20" placeholder="Description *">{{old("description")}}</textarea>
+      <textarea class="controls" name="description" rows="3" cols="20" placeholder="Description *">{{$dato->description}}</textarea>
       @error ('description')
         {{$message}}
       @enderror
-      <input class="controls" type="text" name="stock" placeholder="Stock *" value="{{old("stock")}}">
+      <input class="controls" type="text" name="stock" placeholder="Stock *" value="{{$dato->stock}}">
       @error ('stock')
         {{$message}}
       @enderror
-      <div> <label for="avatar">Image (Not optional)</label> </div>
+      <div> <label for="avatar">Change image (Optional)</label> </div>
       <input class="controls" type="file" name="image" id="avatar">
       @error ('image')
         {{$message}}
       @enderror
-      <a href="/admin/editProduct/{id}"><button class="botons" type="submit" name="button" value="save">Save</button></a>
+      <button class="botons" type="submit" name="button" value="save">Save</button>
     </form>
   </form>
   </div>

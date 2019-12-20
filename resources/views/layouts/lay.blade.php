@@ -11,6 +11,7 @@
   <script src="/js/functions.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+<link rel="shortcut icon" type="image/png" href="/img/ico.png"/>
   <title>GloTech</title>
 </head>
 <body>

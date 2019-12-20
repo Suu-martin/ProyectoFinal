@@ -26,7 +26,7 @@
                 <i>Precio</i>: ${{ $dato->price }}<br>
               </div>
               <div class="producto-imagen">
-                <a href="producto.php?id=">
+                <a href="/product/{{ $dato->id }}">
                   <img src="/storage/products/{{ $dato->image }}" alt="">
                 </a>
               </div>

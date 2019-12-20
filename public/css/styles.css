@@ -822,6 +822,30 @@ input[type=checkbox] {
 
   /* fin vista de preguntas frecuentes */
 
+  /* vista de brands */
+  .brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #24303c;
+    width: 100%;
+  }
+  .brands-li {
+    width: 30%;
+  }
+  /* fin de vista brands*/
+  /* vista de brands */
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #24303c;
+    width: 100%;
+  }
+  .cat-li {
+    width: 30%;
+  }
+  /* fin de vista brands*/
   /* vista de perfil de usuario */
   .NombreC {
     text-align: center;
@@ -1170,7 +1194,7 @@ input[type=checkbox] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: #24303c
+    background-color: #24303c;
   }
   .faq {
     width: 100%;
@@ -1180,7 +1204,19 @@ input[type=checkbox] {
   width: 45%;
 }
   /* fin vista de preguntas frecuentes */
-
+/* vista de brands */
+.brands {
+  width: 100%;
+}
+.brands-li {
+  width: 10%;
+}
+/* fin vista de brands*/
+/* vista de categories */
+.cat-li {
+  width: 10%;
+}
+/* fin vista de Categories*/
   /* vista de perfil de usuario */
   .NombreC {
     text-align: center;

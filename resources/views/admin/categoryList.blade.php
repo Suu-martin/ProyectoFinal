@@ -3,9 +3,9 @@
 @section('content')
   <div class="faq-background">
     <h4 class="faq">Categories</h4>
-    <ul class="ask">
+    <ul class="categories">
       @forelse ($categories as $category)
-      <li class="faq-li">
+      <li class="cat-li">
         <div class="faq-titulo">
           {{$category->name}}
         </div>

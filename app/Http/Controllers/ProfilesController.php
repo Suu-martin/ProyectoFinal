@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilesController extends Controller
 {
@@ -27,8 +29,10 @@ class ProfilesController extends Controller
 
     $this->validate($form, $rules);
 
-    $user = User::find($form["id"]);
-
+    $user = User::find(Auth::user()->id);
+    if (!(Hash::check($form->get('oldPassword'), Auth::user()->password))) {
+           return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+       }
     $user->name = $form["name"];
     $user->password = Hash::make($form['password']);
 

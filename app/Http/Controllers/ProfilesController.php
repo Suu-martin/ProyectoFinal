@@ -34,7 +34,9 @@ class ProfilesController extends Controller
            return redirect()->back()->with("error","Your current password does not matches with the password you provided. Please try again.");
        }
     $user->name = $form["name"];
-    $user->password = Hash::make($form['password']);
+    if(strlen($form["password"])>6) {
+	  	$user->password = Hash::make($form['password']);
+	  }
 
     if(isset($form["avatar"]))
     {

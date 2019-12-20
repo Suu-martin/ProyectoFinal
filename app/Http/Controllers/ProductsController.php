@@ -10,13 +10,32 @@ use App\Category;
 class ProductsController extends Controller
 {
     public function listado() {
-      $datos = Product::paginate(5);
-
-      $vac = compact("datos");
+      $s = "";
+      if(isset($_GET["s"]))
+      {
+        $s = $_GET["s"];
+      }
+      $datos = Product::join('brand', 'brand_id', '=', 'brand.id')
+      ->join('category', 'category_id', '=', 'category.id')
+      ->select('products.*','brand.name AS brand_name')
+      ->where('products.name','LIKE', "%$s%")
+      ->orwhere('brand.name','LIKE', "%$s%")
+      ->orwhere('category.name','LIKE', "%$s%")->paginate(8);
+      $datos->appends(["s" => $s]);
+      $vac = compact("datos","s");
 
       return view("/home", $vac);
     }
-
+    public function getProducts($in = "")
+    {
+      $datos = Product::join('brand', 'brand_id', '=', 'brand.id')
+      ->join('category', 'category_id', '=', 'category.id')
+      ->select('products.*','brand.name AS brand_name')
+      ->where('products.name','LIKE', "%$in%")
+      ->orwhere('brand.name','LIKE', "%$in%")
+      ->orwhere('category.name','LIKE', "%$in%")->paginate(8);
+      return response()->json($datos,200);
+    }
     public function list()
     {
       $datos = Product::all();

@@ -8,7 +8,7 @@ Route::get('/contact', 'ContactController@index');
 
 //CART
 Route::get('/cart', 'CartController@index');
-
+Route::get('/cart/remove/{item}', 'CartController@delItem');
 
 //USER
 Route::get('/editProfile', 'ProfilesController@edit')->middleware('isLogIn');

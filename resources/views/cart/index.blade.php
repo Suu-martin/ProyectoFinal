@@ -6,20 +6,16 @@
   @forelse ($cart as $item)
 			   <li class="item-cart-li">
 				  <div class="item-cart">
-					  <a href="producto.php?id=">
-					<img src="img/productos/" alt="" class="item-cart-img"></a>
+					  <a href="/product/{{ $item["item"]->id }}">
+					<img src="/storage/products/{{ $item["item"]->image }}" alt="" class="item-cart-img"></a>
 					<div class="Cart-descripcion">
-					  <h3>Name</h3>
-					  <h5>$price</h5>
-						<form action="" method="post">
-  						<input value="1" name="ID" style="display: none">
-  	  				<button type="submit" name="button" value="add" class="cart-btn">+</button>
-  						<button type="submit" name="button" value="nothing" class="cart-btn disabled" disabled>+</button>
-  						<input type="number" value="9" class="cart-input" disabled>
-  						<button type="submit" name="button" value="substract" class="cart-btn">-</button>
-  			  		<button type="submit" name="button" value="nothing" class="cart-btn disabled" disabled>-</button>
-  						<button type="submit" name="button" value="remove" class="cart-btn red">X</button>
-						</form>
+					  <h3>{{ $item["item"]->name }}</h3>
+					  <h5>${{ $item["item"]->price }}</h5>
+	  				<button class="cart-btn {{($item["item"]->stock == $item["cant"]) ? "disabled" : ""}}"  onclick="addToCart(this,{{ $item["item"]->id }})">+</button>
+						<input type="number" value="{{ $item["cant"] }}" class="cart-input" disabled id="cant-cart-{{ $item["item"]->id }}">
+						<button class="cart-btn {{($item["cant"]== 1) ? "disabled" : ""}}"   onclick="remFromCart(this,{{ $item["item"]->id }})">-</button>
+						<a href="/cart/remove/{{ $item["item"]->id }}">
+            <button class="cart-btn red">X</button></a>
 					</div>
 				  </div>
 				  <hr class="line">

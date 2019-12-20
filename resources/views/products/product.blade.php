@@ -15,8 +15,8 @@
               ${{$datos->price}}
             </h3>
 
-    			  <form action="" method="post">
-    				  <button type="submit" class="add-cart" {{($datos->stock == 0) ? 'disabled style=background-color:gray;' : ""}}>
+    				  <button type="submit" class="add-cart" {{($datos->stock == 0) ? 'disabled style=background-color:gray;' : ""}}
+                {{($datos->stock == 0) ?"" : "onclick=addToCart(this,$datos->id)"}}>
             			Add to cart
     				  </button>
     			  </form>

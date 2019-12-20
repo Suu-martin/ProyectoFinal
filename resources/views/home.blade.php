@@ -4,23 +4,30 @@
       <div class="header-listado margin-l-r">
         <form class="buscador-listado" action="" method="GET">
           <div class="">
-            <input type="text" name="s" value="" placeholder="Buscar">
+            <input type="text" name="s" value="{{$s}}" placeholder="Buscar" id="main-search">
             <button type="submit">Buscar</button>
           </div>
         </form>
-        <div class="paginador">
+        <div class="paginador" id="paginator">
             {{$datos->links()}}
         </div>
       </div>
-      <section class="articulos">
+      <img id="loading" src="/img/loading.gif" class="loader-gif" style="display:none">
+      <section class="articulos" id="articles">
       @forelse ($datos as $dato)
         <article class="articulo">
           <a href="/product/{{$dato->id}}">
           <div class="articulo-imagen">
             <img src="/storage/products/{{ $dato->image }}" alt="" class="img-article">
-            <div class="cart">
-               <a onclick="addToCart(this,{{ $dato->id }})"><i class="material-icons">add_shopping_cart</i></a>
+            @if($dato->stock > 0)
+            <div class="cart" onclick="addToCart(this,{{ $dato->id }})">
+               <a><i class="material-icons">add_shopping_cart</i></a>
             </div>
+            @else
+            <div class="cart disabled">
+               <a><i class="material-icons">add_shopping_cart</i></a>
+            </div>
+            @endif
           </div>
           <div class="article-footer">
             <h4>{{ $dato->name }}</h4>

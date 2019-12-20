@@ -1,8 +1,8 @@
 @extends('layouts.lay')
 
 @section('content')
-    <div class="faq-background">
-      <form class="" action=" {{"/admin/addFaq"}}" method="post">
+    <div class="form-cont">
+      <form class="" action=" {{"/addFaq"}}" method="post">
       @csrf
       <h4 class="faq">Frequently Asked Questions</h4>
       <dl class="askfq">

@@ -4,7 +4,7 @@
 
   <div class="form-cont">
     <h4>Add Product</h4>
-    <form class="" action=" {{"/admin/addProduct"}}" method="post" enctype="multipart/form-data">
+    <form class="" action="/admin/addProduct" method="post" enctype="multipart/form-data">
     @csrf
       <input class="controls" type="text"  name="name" placeholder="Name *" value="{{old("name")}}" >
       @error ('name')

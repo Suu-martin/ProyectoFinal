@@ -3,7 +3,7 @@
 @section('content')
 <div class="form-register">
           <h4>Registration Form</h4>
-          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
+          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" id="register-form" >
             @csrf
             <input id="name" type="text" class="controls" name="name" value="{{ old('name') }}" placeholder="Name *" required autocomplete="name" autofocus>
                 @error('name')

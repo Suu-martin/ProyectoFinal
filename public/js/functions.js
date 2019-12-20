@@ -60,6 +60,71 @@ function remFromCart(e , id) {
   })
 }
 document.addEventListener('DOMContentLoaded', ()=> {
+  if(document.getElementById('register-form')){
+    let form = document.getElementById('register-form');
+    let name = document.getElementById('name');
+    var itemName = false;
+    let email = document.getElementById('email');
+    var itemEmail = false;
+    let password = document.getElementById('password');
+    var itemPassword = false;
+    let confirmPassword = document.getElementById('password-confirm');
+    var itemConfirmPassword = false;
+    var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    name.addEventListener('keyup', (e)=>{
+      if(name.value.length>3){
+        name.style = "border: 1px solid green";
+        itemName = true;
+      } else {
+        name.style = "border: 1px solid false";
+        itemName = false;
+      }
+    })
+    email.addEventListener('keyup', () => {
+      if(regexEmail.test(email.value)){
+        email.style = "border: 1px solid green";
+        itemEmail = true;
+      } else {
+        email.style = "border: 1px solid red";
+        itemEmail = false;
+      }
+    })
+    password.addEventListener('keyup',()=>{
+      confirmPassword.style = "border: 1px solid red";
+      if(password.value.length>6){
+        password.style = "border: 1px solid green";
+        if(confirmPassword.value == password.value){
+          itemConfirmPassword = true;
+          confirmPassword.style = "border: 1px solid green";
+        } else {
+          itemConfirmPassword = false;
+          confirmPassword.style = "border: 1px solid red";
+        }
+        itemPassword = true;
+      } else {
+        password.style = "border: 1px solid red";
+        confirmPassword.style = "border: 1px solid red";
+        itemPassword = false;
+      }
+    })
+    confirmPassword.addEventListener('keyup',()=>{
+      if(confirmPassword.value == password.value && password.value.length >6){
+        confirmPassword.style = "border: 1px solid green";
+        itemConfirmPassword = true;
+      } else {
+        confirmPassword.style = "border: 1px solid red";
+        itemConfirmPassword = false;
+      }
+    })
+    var itsOk = false;
+    form.addEventListener('submit', (e) =>{
+      e.preventDefault();
+      console.log(itemName,itemEmail,itemPassword, itemConfirmPassword);
+      if(itemName && itemEmail && itemPassword && itemConfirmPassword){
+        form.submit();
+      }
+    })
+  }
   if(document.getElementById('main-search')){
     let article = document.getElementById('articles');
     let paginator = document.getElementById('paginator');
@@ -100,7 +165,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             newPaginator  += `<li class="page-item ${(i == data.current_page) ? "active" : ""}">
             ${(i == data.current_page) ? `<span class="page-link">${i}</span>` : `<a class="page-link" href="http://localhost?s=${ searcher.value.toLowerCase() }&amp;page=${ i }">${i}</a>`}</li>`;
           }
-          newPaginator  += `${(data.current_page == data.total/8) ? ""  :`
+          newPaginator  += `${(data.current_page == Math.ceil(data.total/8)) ? ""  :`
             <li class="page-item">
               <a class="page-link" href="http://localhost?s=${ searcher.value.toLowerCase() }&amp;page=${ data.current_page + 1 }" rel="next" aria-label="Next »">›</a>
           </li>

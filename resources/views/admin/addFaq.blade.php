@@ -5,27 +5,23 @@
       <form class="" action=" {{"/admin/addFaq"}}" method="post">
       @csrf
       <h4 class="faq">Frequently Asked Questions</h4>
-      <dl class="ask">
-        <label for="question" style="color:white" >Question</label>
-        <input style="height:30px" class="esp" id="question" name="question" class="form-control" type="text" placeholder="Write your question here!" value="{{ old('question') }}">
+      <dl class="askfq">
+        <input id="question" name="question" class="controls" type="text" placeholder="Write your question here!" value="{{ old('question') }}">
         @error('question')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
       </dl>
-      <dl class="ask">
-        <label for="answer" style="color:white">Answer</label>
-        <input style="height:30px" class="esp" id="answer" name="answer" class="form-control" type="text" placeholder="Write your answer here!" value="{{ old('answer')}}">
+      <dl class="askfq">
+        <input id="answer" name="answer" class="controls" type="text" placeholder="Write your answer here!" value="{{ old('answer')}}">
         @error('answer')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
       </dl>
-      <div class="boton edit-faq">
-        <a href="/deleteFaq"><button class="boton1" type="submit" name="button" value="save">Save</button></a>
-      </div>
+        <a href="/deleteFaq"><button class="botons" type="submit" name="button" value="save">Save</button></a>
     </form>
   </div>
 @endsection

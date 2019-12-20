@@ -21,9 +21,7 @@
             @foreach ($brands as $brand)
               <option value="{{ $brand->id }}" {{($dato->brand_id == $brand->id)? "selected" : ""}}>{{ $brand->name }}</option>
             @endforeach
-            <option value="0">Add brand</option>
           </select>
-          <input type="text" class="option-selector" name="addMarc" value="" placeholder="Select add!">
         </div>
         <div class="">
          <div> <label for="category">Category:</label> </div>
@@ -31,9 +29,7 @@
            @foreach ($categories as $category)
            <option value="{{ $category->id }}" {{($dato->category_id == $category->id)? "selected" : ""}}>{{ $category->name }}</option>
            @endforeach
-           <option value="0">Add category</option>
          </select>
-         <input type="text" class="option-selector" name="addCat" value="" placeholder="Select add!">
         </div>
       </div>
       <textarea class="controls" name="description" rows="3" cols="20" placeholder="Description *">{{old("description")}}</textarea>

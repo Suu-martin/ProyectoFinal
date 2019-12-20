@@ -518,9 +518,7 @@ input[type=checkbox] {
 }
 .ask {
   background-color: #fff;
-  padding: 10px;
   color: #000;
-  margin-bottom: 10px;
   cursor: pointer;
 }
 .answer {
@@ -1167,6 +1165,12 @@ input[type=checkbox] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+  .askfq {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #24303c
   }
   .faq {
     width: 100%;

@@ -13,7 +13,37 @@ class BrandsController extends Controller
 
     $vac = compact("brands");
 
-    return view("brands/brand", $vac);
+    return view("/admin/brandList", $vac);
   }
+
+  public function detail($id) {
+    $brand = Brand::find($id);
+
+    $vac = compact("brand");
+
+    return view("/admin/detailBrand", $vac);
+  }
+
+  public function delete(Request $form) {
+    $id = $form["id"];
+
+    $brand = Brand::find($id);
+
+    $brand->delete();
+
+    return redirect("/admin/brandList");
+  }
+
+  public function addform() {
+    return view("/admin/addBrand");
+  }
+
+
+  public function add(Request $request){
+      $newBrand = new Brand();
+      $newBrand->name = $request["name"];
+      $newBrand->save();
+      return redirect("/admin/brandList");
+      }
 
 }

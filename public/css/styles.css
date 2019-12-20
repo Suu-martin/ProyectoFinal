@@ -7,6 +7,10 @@
 .error-reg {
   color: red;
 }
+.loader-gif {
+  margin: 0 auto;
+  display: block;
+}
 .marca-categoria {
   display: flex;
   justify-content: space-around;
@@ -16,6 +20,9 @@
   padding: 10px;
   border: 1px solid #1f53c5;
 
+}
+.pagination-s li {
+  margin: 0 2px;
 }
 .item-admin {
   background-color: #fff;
@@ -171,6 +178,7 @@ a {
 }
 main {
   width: 100%;
+  overflow: hidden;
 }
 .container {
   display: flex;
@@ -942,7 +950,7 @@ input[type=checkbox] {
   .articulo {
 	display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 20%;
     margin: 20px;
     flex-direction: column;

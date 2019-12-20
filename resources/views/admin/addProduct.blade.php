@@ -45,7 +45,7 @@
       @error ('image')
         {{$message}}
       @enderror
-      <input  class="botons" type="submit" value="Add">
+      <a href="/admin/addProduct"><button class="botons" type="submit" name="button" value="save">Save</button></a>
     </form>
   </form>
   </div>

@@ -11,12 +11,12 @@
         </span>
       </li>
     </a>
-    <a href="/admin/brands">
+    <a href="/admin/brandList">
       <li class="controls item-admin">
         Brands
       </li>
     </a>
-    <a href="/admin/categories">
+    <a href="/admin/categoryList">
       <li class="controls item-admin">
         Categories
       </li>

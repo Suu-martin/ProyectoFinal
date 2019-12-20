@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="form-cont">
-      <form class="" action=" {{"/addFaq"}}" method="post">
+      <form class="" action=" {{"/admin/addFaq"}}" method="post">
       @csrf
       <h4 class="faq">Frequently Asked Questions</h4>
       <dl class="askfq">
@@ -21,7 +21,7 @@
             </span>
         @enderror
       </dl>
-        <a href="/deleteFaq"><button class="botons" type="submit" name="button" value="save">Save</button></a>
+        <a href="/admin/addFaq"><button class="botons" type="submit" name="button" value="save">Save</button></a>
     </form>
   </div>
 @endsection
